@@ -1,47 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>ECharts</title>
-    <!-- including ECharts file -->
-    <script src="C:\Users\muppa\Desktop\echarts-practice\apache-echarts-5.0.1-src\dist\echarts.js"></script>
-    
+    <head>
+        <title> practice 1</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts-en.min.js"></script>
     </head>
-<body>
-    <!-- prepare a DOM container with width and height -->
-    <div id="main" class="char" style="width: 700px;height:400px;"></div>
-    <script type="text/javascript">
-        // based on prepared DOM, initialize echarts instance
-        var myChart = echarts.init(document.getElementById('main'));
 
-        // specify chart configuration item and data
-        var option = {
-            title: {
-                text: "Main Title",
-                show: true,
+    <body>
+        <div id="main" style="width:600px; height:600px;"></div>
+        <script>
+            var chart = document.getElementById('main');
+            var myChart = echarts.init(chart);
+
+            var option ={
+                title: {text: 'Main Title',
+                left: "center",
                 textStyle: {
-                color: 'red',
-                fontSize:50
-                },
-                },
-            tooltip: {},
-            legend: {
-                data:['Sales', 'item']
+                    fontSize: 30,
+                    fontStyle: 'italic',
+                    color: 'red'
+                }
             },
-            xAxis: {
-                data: ["shirt","cardign","sweater","chiffon shirt","pants","heels","socks"]
-            },
-            yAxis: {},
-            series: [{
-                name: 'Sales', 
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
-            }
-            ]
-        };
+                tooltip: { },
+                legend: { data: ['food']},
+                xAxis: { data:['chocolate', 'chips', 'chapati', 'wings']},
+                yAxis: { },
+                series: [{
+                    name: 'food',
+                    type: 'bar',
+                    data: [5,3,5,2]
+                }]
+            };
 
-        // use configuration item and data specified to show chart
-        myChart.setOption(option);
-    </script>
-</body>
+            myChart.setOption(option);
+        </script>
+    </body>
 </html>
+
+
+
+
