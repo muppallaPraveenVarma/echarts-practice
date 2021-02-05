@@ -7,7 +7,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts-en.min.js"></script>
         <style>
             body{
-                background-color:red;
+                background-color: grey;
             }
             #main{
                 align-items: center;
@@ -30,11 +30,37 @@
                     show: true,
                     name: 'Time of the day',
                     nameLocation: 'middle',
+                    nameTextStyle: {
+                        fontStyle: 'sans-serif',
+                        align: 'center',
+                        verticalAlign: 'top',
+                        lineHeight: 60,
+                    },
+                    nameGap:15,
+                    axisLine: {
+                        symbol: 'none',
+                        lineStyle: {
+                            color:'green',
+                            opacity: 0.5,
+                        },
+                    },
+                    axisTick: {
+                        show: true,
+                        alignWithLabel: true,
+                    },
+                    axisLabel: {
+                        show: true,
+                        margin: 10,
+                    }
                 },
                                
                 yAxis: {
                 type: 'value',
-                
+                min:15,
+                max:35,
+                axisLabel: {
+                    margin: 15,
+                },
                 },
                 series: [{
                 data: [25, 30, 24, 28, 25, 27, 26],
