@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Temperature at different points in a day
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts-en.min.js"></script>
+        <style>
+            body{
+                background-color:red;
+            }
+            #main{
+                align-items: center;
+                padding-left: 300px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="main" style="width:500px; height: 500px;"></div>
+
+        <script>
+            var charts = document.getElementById('main');
+            var myChart = echarts.init(charts);
+
+            var option = {
+                xAxis: {
+                    type: 'category',
+                    data: ['1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00'],
+                    show: true,
+                    name: 'Time of the day',
+                    nameLocation: 'middle',
+                },
+                               
+                yAxis: {
+                type: 'value',
+                
+                },
+                series: [{
+                data: [25, 30, 24, 28, 25, 27, 26],
+                type: 'line'
+                }],
+                stateAnimation: {
+                    duration: 2,
+                    easing: "cubicOut",
+                },
+            }
+
+            myChart.setOption(option);
+        </script>
+
+        <p id ="main"> the above line graph shows the temperature at different times during the evening</p>
+    </body>
+</html>
