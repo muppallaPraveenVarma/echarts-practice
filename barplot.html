@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Bar Plot
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts-en.min.js"></script>
+    </head>
+    <body>
+        <div id="main" style="width:500px;height:500px;"></div>
+        <script>
+
+            var chart = document.getElementById("main");
+            var mychart = echarts.init(chart);
+
+            var option = {
+                xAxis: {
+                        type: 'category',
+                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: [120, 200, 150, 80, 70, 110, 130],
+                        type: 'bar'
+                    }]
+            };
+
+            mychart.setOption(option);
+            
+        </script>
+        
+    </body>
+</html>

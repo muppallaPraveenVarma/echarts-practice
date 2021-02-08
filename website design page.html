@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Bar Plot
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts-en.min.js"></script>
+    </head>
+    <body>
+        <div id="main" style="width:500px;height:500px;"></div>
+        <script>
+
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom, 'dark');
+var option;
+
+function createNodes(widthCount, heightCount) {
+    var nodes = [];
+    for (var i = 0; i < widthCount; i++) {
+        for (var j = 0; j < heightCount; j++) {
+            nodes.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                value: 1
+            });
+        }
+    }
+    return nodes;
+}
+
+function createEdges(widthCount, heightCount) {
+    var edges = [];
+    for (var i = 0; i < widthCount; i++) {
+        for (var j = 0; j < heightCount; j++) {
+            if (i < widthCount - 1) {
+                edges.push({
+                    source: i + j * widthCount,
+                    target: i + 1 + j * widthCount,
+                    value: 1
+                });
+            }
+            if (j < heightCount - 1) {
+                edges.push({
+                    source: i + j * widthCount,
+                    target: i + (j + 1) * widthCount,
+                    value: 1
+                });
+            }
+        }
+    }
+    return edges;
+}
+
+var nodes = createNodes(150, 150);
+var edges = createEdges(50, 150);
+option = {
+    series: [{
+        type: 'graphGL',
+        nodes: nodes,
+        edges: edges,
+        itemStyle: {
+            color: 'red'
+        },
+        lineStyle: {
+            color: 'blue',
+            width: 3
+        },
+        forceAtlas2: {
+            steps: 25,
+            jitterTolerence: 10,
+            edgeWeightInfluence: 4
+        }
+    }]
+};
+
+option && myChart.setOption(option);
+
+</script>
+
+</body>
+</html>
